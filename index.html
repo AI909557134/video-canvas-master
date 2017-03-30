@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="wap-font-scale" content="no">
+	<meta name="Keywords" content="视频；视频分享；马克巴视频分享"/>
+	<meta name="format-detection" content="telephone=no" />
+	<title>视频</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script type="text/javascript" charset="utf-8" src="js/lib/require.js"  data-main = "js/index" defer async="true"></script>
+</head>
+
+<body>
+	<!--视频盒子-->
+	<div id="veo_box" class="video_box">
+		
+	</div>
+	<!--新增视频标题、观看次数-->
+	<div class="veo_titl">
+		<h1 class="veo_titl_h1"></h1>
+		<p class="veo_click"><span class="veo_play"></span>人观看</p>
+	</div>
+	<!--其他视频-->
+	<!--换一换-->
+	<div class="veo_more">
+		<span class="span_l"><i class="icon link"></i>热播视频</span>
+		<span class="span_r" id="more"><i class="icon change"></i>换一批</span>
+	</div>
+	<!--视频列表-->
+	<div class="veo_list"></div>	
+	<!--弹框提示 && 下载按钮-->
+	<div class="foot" id="dl_bar">
+		<a class="close" onclick="closeDownBar()"></a>
+		<img src="img/dn.png" alt="图片加载失败" class="app_store" onclick="download(1,1)">
+		<img src="img/dn-logo.png" alt="图片加载失败" class="dn_logo">
+	</div>
+	<div id="dl_hint" onclick="dlHide()">请点击右上角菜单，选择在浏览器中打开。</div>
+	<!--alert统一样式-->
+	<script type="text/javascript">
+		// 动态修改font-size 适用于rem布局
+		;(function (doc, win, undefined) {
+		var docEl = doc.documentElement,
+		resizeEvt = 'orientationchange' in win? 'orientationchange' : 'resize',
+		recalc = function () {
+			var clientWidth = docEl.clientWidth;
+			if (clientWidth === undefined) return;
+			if(clientWidth >= 640){
+	            docEl.style.fontSize = '35px';
+	        }else{
+	            docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+	        }
+//		docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+		};
+		if (doc.addEventListener === undefined) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document, window);
+	</script>
+</body>
+</html>
